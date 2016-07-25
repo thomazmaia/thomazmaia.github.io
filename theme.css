@@ -10,8 +10,6 @@
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  */
 
-/* @import url("pygment.css"); */
-
 body { margin:0px; padding:20px 0px; text-align:center; font-family:Monospace; color:#585858; }
 a, a:visited { text-decoration:none; color:rgb(17, 170, 34); }
 a:hover { color:#FFF; background-color:rgb(17, 170, 34) }
@@ -31,6 +29,8 @@ input:hover, textarea:hover, blockquote:hover { background:#E5E5E5; }
 #sidebar > li { margin:20px 0px; }
 #sidebar h1 { border-bottom:1px dotted #C8C8C8; }
 #sidebar .description { display:block; width:100%; height:auto; margin:0px 0px 10px 0px; }
+
+#pages { border-bottom:1px dotted #C8C8C8; border-top:1px dotted #C8C8C8; }
 
 ul.sub-menu, ul.children { margin:0px 10px 0px 0px; }
 
@@ -107,7 +107,6 @@ input#s { width:70%; height:auto; margin:5px 0px; }
     top : 8px;
 }
 
-/* TP EDITS */
 .grv-img {
   border-radius: 90%;
   -moz-border-radius: 90%;
