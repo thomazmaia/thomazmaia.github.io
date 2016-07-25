@@ -105,3 +105,12 @@ input#s { width:70%; height:auto; margin:5px 0px; }
     position : relative;
     top : 8px;
 }
+
+/* TP EDITS */
+.grv-img {
+  border-radius: 90%;
+  -moz-border-radius: 90%;
+  -webkit-border-radius: 90%;
+  margin-right: auto;
+  margin-left: auto;
+}
