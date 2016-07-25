@@ -4,3 +4,4 @@
 > **LOG**
 * Creation of Github/Website
 * ADD *about me*
+* ADD *publications* page
