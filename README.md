@@ -5,3 +5,4 @@
 * Creation of Github/Website
 * ADD *about me*
 * ADD *publications* page
+* ADD CNAME (for custom domain: thomazmaia.com)
