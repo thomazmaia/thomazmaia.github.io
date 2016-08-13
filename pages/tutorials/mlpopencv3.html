@@ -33,73 +33,73 @@
 		        <article>
 				<!-- <img src="../../img/ann_training.png" align="middle" > -->
 				<h2>The example</h2>
-				<p>This ANN works with 3-input XOR case.</p>
+				<p>This ANN works with 3-input XOR case. This is a classic non-linear problem that can't be solved with linear cassifiers. We have 3 input (A, B, C) and 2 output (0 or 1). Opencv uses <a href="http://docs.opencv.org/3.1.0/dc/dd6/ml_intro.html#ml_intro_ann" target="_blank">symmetrical sigmoid</a> (between -1 and 1) so we have 1 for our true response and -1 for false response.  </p>
 				<p>XOR truth table:</p>
-<table>
-  <tr>
-    <th>A</th>
-    <th>B</th>
-    <th>C</th>
-    <th>OUT</th>
-    <th>Target</th>
-  </tr>
-  <tr>
-    <td>0</td>
-    <td>0</td>
-    <td>0</td>
-    <td>0</td>
-    <td>+1 -1</td>
-  </tr>
-  <tr>
-    <td>0</td>
-    <td>0</td>
-    <td>1</td>
-    <td>1</td>
-    <td>-1 +1</td>
-  </tr>
-  <tr>
-    <td>0</td>
-    <td>1</td>
-    <td>0</td>
-    <td>1</td>
-    <td>-1 +1</td>
-  </tr>
-  <tr>
-    <td>0</td>
-    <td>1</td>
-    <td>1</td>
-    <td>0</td>
-    <td>+1 -1</td>
-  </tr>
-  <tr>
-    <td>1</td>
-    <td>0</td>
-    <td>0</td>
-    <td>1</td>
-    <td>-1 +1</td>
-  </tr>
-  <tr>
-    <td>1</td>
-    <td>0</td>
-    <td>1</td>
-    <td>0</td>
-    <td>+1 -1</td>
-  </tr>
-  <tr>
-    <td>1</td>
-    <td>1</td>
-    <td>0</td>
-    <td>0</td>
-    <td>+1 -1</td>
-  </tr>
-  <tr>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>-1 +1</td>
-  </tr>
-</table>
+				<table>
+				  <tr>
+				    <th>A</th>
+				    <th>B</th>
+				    <th>C</th>
+				    <th>OUT</th>
+				    <th>Target</th>
+				  </tr>
+				  <tr>
+				    <td>0</td>
+				    <td>0</td>
+				    <td>0</td>
+				    <td>0</td>
+				    <td>+1 -1</td>
+				  </tr>
+				  <tr>
+				    <td>0</td>
+				    <td>0</td>
+				    <td>1</td>
+				    <td>1</td>
+				    <td>-1 +1</td>
+				  </tr>
+				  <tr>
+				    <td>0</td>
+				    <td>1</td>
+				    <td>0</td>
+				    <td>1</td>
+				    <td>-1 +1</td>
+				  </tr>
+				  <tr>
+				    <td>0</td>
+				    <td>1</td>
+				    <td>1</td>
+				    <td>0</td>
+				    <td>+1 -1</td>
+				  </tr>
+				  <tr>
+				    <td>1</td>
+				    <td>0</td>
+				    <td>0</td>
+				    <td>1</td>
+				    <td>-1 +1</td>
+				  </tr>
+				  <tr>
+				    <td>1</td>
+				    <td>0</td>
+				    <td>1</td>
+				    <td>0</td>
+				    <td>+1 -1</td>
+				  </tr>
+				  <tr>
+				    <td>1</td>
+				    <td>1</td>
+				    <td>0</td>
+				    <td>0</td>
+				    <td>+1 -1</td>
+				  </tr>
+				  <tr>
+				    <td>1</td>
+				    <td>1</td>
+				    <td>1</td>
+				    <td>1</td>
+				    <td>-1 +1</td>
+				  </tr>
+				</table>
 				<h2>Topology</h2>
 					<img src="../../img/ann_topology.png" align="center" >					
 				<h2>Code! Show me the code!!</h2>
