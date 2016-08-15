@@ -109,7 +109,62 @@
 				</ul>				
 				<img src="../../img/ann_topology.png" align="center" >					
 				<h2>Code! Show me the code!!</h2>
-				<pre><code class="language-cpp">int main(){ itn a = 0;}</code></pre>
+				<pre><code class="language-cpp">
+					
+					//
+					//  main.cpp
+					//  MLPCV
+					//
+					//  Created by Thomaz Maia on 12/08/16.
+					//  Copyright © 2016 Thomaz Maia . All rights reserved.
+					//
+					
+					#include <iostream>
+					#include <opencv2/opencv.hpp>
+					
+					int main(int argc, const char * argv[]) {
+					    // Database config
+					    const int numInstances = 8;
+					    const int numAttributes = 3;
+					    const int numHiddenNeurons = 10;
+					    const int numClasses = 2;
+					
+					    // input XOR
+					    float data[] = {0,0,0, 0,0,1, 0,1,0, 0,1,1, 1,0,0, 1,0,1, 1,1,0, 1,1,1};
+					    cv::Mat input = cv::Mat(numInstances, numAttributes, CV_32FC1, data);
+					    std::cout << "Input layer:" << std::endl << input << std::endl;
+					    
+					    // output XOR
+					    float labels[] = {1,-1, -1,1, -1,1, 1,-1, -1,1, 1,-1, 1,-1, -1,1};
+					    cv::Mat output = cv::Mat(numInstances, numClasses, CV_32FC1, labels);
+					    std::cout << "Output layer:" << std::endl << output << std::endl;
+					    
+					    // Configurate topology
+					    float layer[] = {numAttributes, numHiddenNeurons, numClasses};
+					    cv::Mat layerSizes = cv::Mat(1, 3, CV_32FC1, layer);
+					    std::cout << "MLP topology: " << layerSizes << std::endl;
+					    
+					    // Create ANN
+					    cv::Ptr<cv::ml::ANN_MLP> mlp = cv::ml::ANN_MLP::create();
+					    mlp->setLayerSizes(layerSizes);
+					    mlp->setActivationFunction(cv::ml::ANN_MLP::SIGMOID_SYM);
+					    mlp->setTrainMethod(cv::ml::ANN_MLP::RPROP);
+					    mlp->setTermCriteria(cv::TermCriteria(cv::TermCriteria::MAX_ITER + cv::TermCriteria::EPS, 1000, 0.0001));
+					    
+					    // Training...
+					    mlp->train(input, cv::ml::ROW_SAMPLE, output);
+					    
+					    // Prediction
+					    cv::Mat p_output;
+					    mlp->predict(input, p_output);
+					    std::cout << "Predicted output:" << std::endl << p_output << std::endl;
+					    
+					    return 0;
+					}
+					
+					
+					
+				</code></pre>
             	</article>
             </div>
         </div>
