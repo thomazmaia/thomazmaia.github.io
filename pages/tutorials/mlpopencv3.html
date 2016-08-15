@@ -35,7 +35,7 @@
 				<!-- <img src="../../img/ann_training.png" align="middle" > -->
 				<h2>The problem</h2>
 				<p>This ANN works with 3-input XOR case. This is a classic non-linear problem that can't be solved with linear cassifiers. We have 3 input (A, B, C) and 2 output (0 or 1). Opencv uses <a href="http://docs.opencv.org/3.1.0/dc/dd6/ml_intro.html#ml_intro_ann" target="_blank">symmetrical sigmoid</a> (between -1 and 1) so we have "+1" for our true response and "-1" for false response.</p>
-				<p>XOR truth table:</p>
+				<p>XOR3 truth table:</p>
 				<table>
 				  <tr>
 				    <th>A</th>
@@ -118,7 +118,7 @@
 //  Copyright © 2016 Thomaz Maia . All rights reserved.
 //
 
-#include <iostream>
+#include &le iostream>
 #include <opencv2/opencv.hpp>
 
 int main(int argc, const char * argv[]) {
