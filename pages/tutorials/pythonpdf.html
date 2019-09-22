@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Thomaz Maia :: Tutorials</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="/../../theme.css" type="text/css" />
+	<style>
+	table {
+	font-family:Monospace;
+	    border-collapse: collapse;
+	    width: 50;
+	}
+	
+	td, th {
+	    border: 1px dashed #dddddd;
+	    text-align: center;
+	    padding: 2px;
+	}
+	
+	tr:nth-child(even) {
+	    background-color: #dddddd;
+	}
+	</style>        
+</head>
+
+<body>
+	<script src="/../../prism.js"></script>		
+	<div id="wrap" style="width:850px">
+	    <div id="containerpage" style="width:850px">
+            <div class="entry">
+            	<header>
+            		<h1><a href="#" id="site-title"></a>  <a href = "javascript:history.back()" id="page-title">PDF DOC IN PYTHON</a></h1>
+				</header>
+		        <article>
+				<h2>The problem</h2>
+				<p>This ANN works with 3-input XOR case. This is a classic non-linear problem that can't be solved with linear cassifiers. We have 3 input (A, B, C) and 2 output (0 or 1). Opencv uses <a href="http://docs.opencv.org/3.1.0/dc/dd6/ml_intro.html#ml_intro_ann" target="_blank">symmetrical sigmoid</a> (between -1 and 1) so we have "+1" for our true response and "-1" for false response.</p>
+				<p>XOR3 truth table:</p>
+				<table>
+				  <tr>
+				    <th>A</th>
+				    <th>B</th>
+				    <th>C</th>
+				    <th>OUT</th>
+				    <th>Target</th>
+				  </tr>
+				  <tr>
+				    <td>0</td>
+				    <td>0</td>
+				    <td>0</td>
+				    <td>0</td>
+				    <td>+1 -1</td>
+				  </tr>
+				  <tr>
+				    <td>0</td>
+				    <td>0</td>
+				    <td>1</td>
+				    <td>1</td>
+				    <td>-1 +1</td>
+				  </tr>
+				  <tr>
+				    <td>0</td>
+				    <td>1</td>
+				    <td>0</td>
+				    <td>1</td>
+				    <td>-1 +1</td>
+				  </tr>
+				  <tr>
+				    <td>0</td>
+				    <td>1</td>
+				    <td>1</td>
+				    <td>0</td>
+				    <td>+1 -1</td>
+				  </tr>
+				  <tr>
+				    <td>1</td>
+				    <td>0</td>
+				    <td>0</td>
+				    <td>1</td>
+				    <td>-1 +1</td>
+				  </tr>
+				  <tr>
+				    <td>1</td>
+				    <td>0</td>
+				    <td>1</td>
+				    <td>0</td>
+				    <td>+1 -1</td>
+				  </tr>
+				  <tr>
+				    <td>1</td>
+				    <td>1</td>
+				    <td>0</td>
+				    <td>0</td>
+				    <td>+1 -1</td>
+				  </tr>
+				  <tr>
+				    <td>1</td>
+				    <td>1</td>
+				    <td>1</td>
+				    <td>1</td>
+				    <td>-1 +1</td>
+				  </tr>
+				</table>
+				<h2>Topology</h2>
+				<ul>
+				<li> Input layer size: 3</li>
+				<li> Hidden layer size: 10</li>				
+				<li> outnput layer size: 2</li>				
+				</ul>				
+				<img src="../../img/ann_topology.png" align="center" >					
+				<h2>Show me the code!!</h2>
+				<pre><code class="language-cpp">
+//
+//  main.cpp
+//  MLPCV
+//
+//  Created by Thomaz Maia on 12/08/16.
+//  Copyright © 2016 Thomaz Maia . All rights reserved.
+//
+
+#include &lt;iostream>
+#include &lt;opencv2/opencv.hpp>
+
+int main(int argc, const char * argv[]) {
+    // Database config
+    const int numInstances = 8;
+    const int numAttributes = 3;
+    const int numHiddenNeurons = 10;
+    const int numClasses = 2;
+
+    // input XOR
+    float data[] = {0,0,0,  0,0,1,  0,1,0,  0,1,1,  1,0,0,  1,0,1,  1,1,0,  1,1,1};
+    cv::Mat input = cv::Mat(numInstances, numAttributes, CV_32FC1, data);
+    std::cout << "Input layer:" << std::endl << input << std::endl;
+    
+    // output XOR
+    float labels[] = {1,-1,  -1,1,  -1,1,  1,-1,  -1,1,  1,-1,  1,-1,  -1,1};
+    cv::Mat output = cv::Mat(numInstances, numClasses, CV_32FC1, labels);
+    std::cout << "Output layer:" << std::endl << output << std::endl;
+    
+    // Configurate topology
+    float layer[] = {numAttributes, numHiddenNeurons, numClasses};
+    cv::Mat layerSizes = cv::Mat(1, 3, CV_32FC1, layer);
+    std::cout << "MLP topology: " << layerSizes << std::endl;
+    
+    // Create ANN
+    cv::Ptr<cv::ml::ANN_MLP> mlp = cv::ml::ANN_MLP::create();
+    mlp->setLayerSizes(layerSizes);
+    mlp->setActivationFunction(cv::ml::ANN_MLP::SIGMOID_SYM);
+    mlp->setTrainMethod(cv::ml::ANN_MLP::RPROP);
+    mlp->setTermCriteria(cv::TermCriteria(cv::TermCriteria::MAX_ITER + cv::TermCriteria::EPS, 1000, 0.0001));
+    
+    // Training...
+    mlp->train(input, cv::ml::ROW_SAMPLE, output);
+    
+    // Prediction
+    cv::Mat p_output;
+    mlp->predict(input, p_output);
+    std::cout << "Predicted output:" << std::endl << p_output << std::endl;
+    
+    return 0;
+}
+				</code></pre>
+            	</article>
+            </div>
+        </div>
+
+        <div id="footer">
+            <div id="credits">
+                <span>
+                Go <a href = "javascript:history.back()">BACK</a>!
+                </span>
+            </div>
+                
+        </div>
+    </div>
+
+</body>
+</html>
