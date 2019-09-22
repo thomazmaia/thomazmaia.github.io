@@ -1,5 +1,5 @@
 # That's my spot (https://thomazmaia.github.io)
-*Last update: July 28, 2016*
+*Last update: Sep 22, 2019*
 
 > **LOG**
 * Creation of Github/Website
