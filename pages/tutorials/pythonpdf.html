@@ -73,12 +73,13 @@ import xlrd
 from fpdf import FPDF
 
 class PDF(FPDF):
+    # Image header
     def header(self):
         imgSize = 35
         imgPosition = (self.w - imgSize)/2
         self.image(name='header.png', x=imgPosition, y=10, w=imgSize)
 
-    # Page footer
+    # Information footer
     def footer(self):
         # Line
         self.set_draw_color(r=100, g=100, b=100)
@@ -93,25 +94,32 @@ class PDF(FPDF):
         self.set_font('Arial', 'u', 10)
         self.cell(w=0, h=5, txt='www.ifce.edu.br/maranguape', border=0, ln=0, align='C', fill=False, link='http://www.ifce.edu.br/maranguape')
 
-
+# Open .XLSX file and select 1st sheet
 wb = xlrd.open_workbook("infos.xlsx") 
 sheet = wb.sheet_by_index(0) 
 
 for i in range(1,sheet.nrows,1): 
-    print(sheet.cell_value(i, 0).upper())
     pdf = PDF()
+    # Get the real page width
     pgWidth = pdf.w - 2*pdf.l_margin
+    # Create a new page (must have)
     pdf.add_page()
+    # Configure title style
     pdf.set_font(family='Arial', style='B', size=14)
+    # Set vertical position of the title
     pdf.set_y(60)
     pdf.cell(w=0, h=60, txt="DECLARAÇÃO DE MATRÍCULA", border=0, ln=1, align='C')
+    # Configure text style
     pdf.set_font(family='Arial', style='', size=14)
+    # Here is the text with those fields from .XLSX
     pdf.multi_cell(pgWidth, 6, 'Declaramos para os devidos fins que o aluno ' + sheet.cell_value(i, 0).upper() + ', CPF n° ' + sheet.cell_value(i, 1)  + ', matrícula ' + sheet.cell_value(i, 2) + ', encontra-se matriculado no campus Maranguape, no turno da ' + sheet.cell_value(i, 3) + ', com carga horária equivalente ao ' + sheet.cell_value(i, 4) + '° Período do curso ' + sheet.cell_value(i, 6).upper() + ' deste instituto.')
+    # Here is the date
     pdf.cell(w=0, h=60, txt='Maranguape, ' + sheet.cell_value(i, 5), border=0, ln=1, align='R')
+    # Set vertical position for the signature
     pdf.set_y(pdf.h-54)
     pdf.line(x1=55, y1=pdf.h-57, x2=pdf.w-55, y2=pdf.h-57)
     pdf.cell(w=0, h=5, txt='SECRETARIA DE ALUNOS', border=0, ln=1, align='C')
-    
+    # PDF output
     pdf.output(sheet.cell_value(i, 2) + '_' + sheet.cell_value(i, 0).upper() + '.pdf', 'F')
 				</code></pre>
             	</article>
