@@ -55,11 +55,16 @@
 					</li>
 				</ol>
 				
-				<h2>Read .XLSX file</h2>
+				<h2>1. Read .XLSX file</h2>
 				<p>To read a file we must have a file. So I create one with two generic items:</p>
 				<a href="../../img/excelpdf.png"><img src="../../img/excelpdf.png" width="100%" align="center" /></a>
 				I use <a href="https://pypi.org/project/xlrd/" target="_blank">XLRD</a> to read these 7 fields from .XLSX. I just open the file, select the first sheet and started reading from the second line (because the first one is the title in my example above). Then I just iterate the lines.</p>
 				
+		    		<h2>2. Create a .PDF template in python</h2>
+		    		<p>For this template I use this <a href="https://pyfpdf.readthedocs.io/en/latest/index.html" target="_blank">pyFPDF library </a> which is an old simples lib ported from PHP. All I had to do was define a header class and a footer class. In the header I define the position of the image. In the footer I wrote some text. The code says by itself.</p>
+		    
+		    		<h2>3. Write the PDF with the information from the XLSX</h2>
+		    
 				<h2>Show me the code!!</h2>
 				<pre><code class="language-py">
 # -*- coding: utf-8 -*-
