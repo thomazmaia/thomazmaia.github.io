@@ -8,3 +8,5 @@
 * ADD CNAME (for custom domain: thomazmaia.com)
 * ADD *presentations* page
 * ADD presentation: Digital "Presentations: 5 useful tips!"
+* ADD tutorial: MLP with Opencv 3.0
+* ADD tutorial: PDF doc in Python
