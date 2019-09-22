@@ -29,86 +29,21 @@
 	    <div id="containerpage" style="width:850px">
             <div class="entry">
             	<header>
-            		<h1><a href="#" id="site-title"></a>  <a href = "javascript:history.back()" id="page-title">PDF DOC IN PYTHON</a></h1>
-				</header>
-		        <article>
-				<h2>The problem</h2>
-				<p>This ANN works with 3-input XOR case. This is a classic non-linear problem that can't be solved with linear cassifiers. We have 3 input (A, B, C) and 2 output (0 or 1). Opencv uses <a href="http://docs.opencv.org/3.1.0/dc/dd6/ml_intro.html#ml_intro_ann" target="_blank">symmetrical sigmoid</a> (between -1 and 1) so we have "+1" for our true response and "-1" for false response.</p>
-				<p>XOR3 truth table:</p>
-				<table>
-				  <tr>
-				    <th>A</th>
-				    <th>B</th>
-				    <th>C</th>
-				    <th>OUT</th>
-				    <th>Target</th>
-				  </tr>
-				  <tr>
-				    <td>0</td>
-				    <td>0</td>
-				    <td>0</td>
-				    <td>0</td>
-				    <td>+1 -1</td>
-				  </tr>
-				  <tr>
-				    <td>0</td>
-				    <td>0</td>
-				    <td>1</td>
-				    <td>1</td>
-				    <td>-1 +1</td>
-				  </tr>
-				  <tr>
-				    <td>0</td>
-				    <td>1</td>
-				    <td>0</td>
-				    <td>1</td>
-				    <td>-1 +1</td>
-				  </tr>
-				  <tr>
-				    <td>0</td>
-				    <td>1</td>
-				    <td>1</td>
-				    <td>0</td>
-				    <td>+1 -1</td>
-				  </tr>
-				  <tr>
-				    <td>1</td>
-				    <td>0</td>
-				    <td>0</td>
-				    <td>1</td>
-				    <td>-1 +1</td>
-				  </tr>
-				  <tr>
-				    <td>1</td>
-				    <td>0</td>
-				    <td>1</td>
-				    <td>0</td>
-				    <td>+1 -1</td>
-				  </tr>
-				  <tr>
-				    <td>1</td>
-				    <td>1</td>
-				    <td>0</td>
-				    <td>0</td>
-				    <td>+1 -1</td>
-				  </tr>
-				  <tr>
-				    <td>1</td>
-				    <td>1</td>
-				    <td>1</td>
-				    <td>1</td>
-				    <td>-1 +1</td>
-				  </tr>
-				</table>
-				<h2>Topology</h2>
-				<ul>
-				<li> Input layer size: 3</li>
-				<li> Hidden layer size: 10</li>				
-				<li> outnput layer size: 2</li>				
-				</ul>				
-				<img src="../../img/ann_topology.png" align="center" >					
-				<h2>Show me the code!!</h2>
-				<pre><code class="language-cpp">
+			<h1><a id="site-title" href="#"></a> <a id="page-title"></a>PDF DOC IN PYTHON</h1>
+			</header>
+			<article>
+			<h2>The problem</h2>
+			<p>These days I needed to create lots of .PDF (kinda certificates like the picture below) to be sign from my team. I had to generate PDFs from an excel file.</p>
+			<img src="../../img/declaracao.png" width="50%" align="center" />
+
+			<p> So I had basic 3 problems:</p>
+			<ul>
+			  <li>Read .XLSX file.</li>
+			  <li>Create a .PDF template in python.</li>
+			  <li>Write the PDF with the information from the XLSX.</li>
+			</ul>	
+			<h2>Show me the code!!</h2>
+			<pre><code class="language-cpp">
 //
 //  main.cpp
 //  MLPCV
