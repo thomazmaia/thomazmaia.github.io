@@ -37,11 +37,24 @@
 				<a href="../../img/declaracao.png"><img src="../../img/declaracao.png" width="50%" align="center" /></a>
 
 				<p> So I had basic 3 problems:</p>
-				<ul>
-				  <li>Read .XLSX file.</li>
-				  <li>Create a .PDF template in python.</li>
-				  <li>Write the PDF with the information from the XLSX.</li>
-				</ul>	
+				<ol>
+					<li>Read .XLSX file
+						<ul>
+							<li>There are some information I have to put in the doc. So I create a XLSX which columns are these information and rows are items that will become a single PDF file.</li>
+						</ul>
+					</li>
+						<li>Create a .PDF template in python
+						<ul>
+							<li>The template has basically three things: image header; information footer and a default text in the middle. This text has the information read from XLSX.</li>
+						</ul>
+					</li>
+					<li>Write the PDF with the information from the XLSX
+						<ul>
+							<li>Finally, I iterate thru the the XLSX lines reading all the information, filling the text and saving the PDF.</li>
+						</ul>
+					</li>
+				</ol>
+								
 				<h2>Show me the code!!</h2>
 				<pre><code class="language-py">
 # -*- coding: utf-8 -*-
