@@ -1,0 +1,97 @@
+.portrait {
+  --scan-width: 92px;
+  --scan-height: 98px;
+}
+
+.portrait > img {
+  filter: saturate(1.05) contrast(1.02);
+}
+
+.portrait-label {
+  padding-bottom: .15rem;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: .59rem;
+  letter-spacing: .06em;
+}
+
+.scan-layer,
+.scan-line {
+  position: absolute;
+  left: 1px;
+  width: calc(var(--scan-width) - 2px);
+  margin: 0;
+  padding: 0;
+  pointer-events: none;
+}
+
+.scan-layer {
+  top: 1px;
+  height: calc(var(--scan-height) - 2px);
+  z-index: 1;
+  background: url("avatar.png") center / cover no-repeat;
+  filter: grayscale(1) contrast(1.16) brightness(.96);
+  clip-path: inset(0 0 100% 0);
+  animation: processed-image 7s linear infinite;
+}
+
+.scan-line {
+  top: 0;
+  z-index: 2;
+  height: 2px;
+  opacity: 0;
+  background: var(--cyan);
+  box-shadow: 0 0 5px var(--cyan), 0 0 12px rgba(0, 184, 212, .8);
+  animation: scanner-line 7s linear infinite;
+}
+
+@keyframes processed-image {
+  0%, 4% { clip-path: inset(0 0 100% 0); }
+  43%, 51% { clip-path: inset(0 0 0 0); }
+  92%, 100% { clip-path: inset(100% 0 0 0); }
+}
+
+@keyframes scanner-line {
+  0% { opacity: 0; transform: translateY(0); }
+  4% { opacity: 1; transform: translateY(0); }
+  43% { opacity: 1; transform: translateY(calc(var(--scan-height) - 2px)); }
+  47% { opacity: 0; transform: translateY(calc(var(--scan-height) - 2px)); }
+  50% { opacity: 0; transform: translateY(0); }
+  53% { opacity: 1; transform: translateY(0); }
+  92% { opacity: 1; transform: translateY(calc(var(--scan-height) - 2px)); }
+  96%, 100% { opacity: 0; transform: translateY(calc(var(--scan-height) - 2px)); }
+}
+
+@media (max-height: 760px) and (min-width: 901px) {
+  .portrait {
+    --scan-width: 72px;
+    --scan-height: 76px;
+  }
+}
+
+@media (max-width: 900px) {
+  .portrait {
+    --scan-width: 90px;
+    --scan-height: 96px;
+  }
+
+  .portrait-label {
+    display: block;
+    margin-top: .4rem;
+  }
+}
+
+@media (max-width: 590px) {
+  .portrait {
+    --scan-width: 72px;
+    --scan-height: 78px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scan-layer,
+  .scan-line {
+    display: none;
+    animation: none;
+  }
+}

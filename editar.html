@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Editor de conteúdo · Thomaz Maia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="editor.css">
+</head>
+<body>
+  <header class="editor-header">
+    <div><span>TM_</span><div><h1>Editor de conteúdo</h1><p>Altere somente os textos, sem tocar no código ou no visual.</p></div></div>
+    <a href="index.html">Voltar ao site ↗</a>
+  </header>
+
+  <main>
+    <aside>
+      <p class="aside-label">Como funciona</p>
+      <ol>
+        <li>Edite os campos.</li>
+        <li>Confira em “Pré-visualizar”.</li>
+        <li>Baixe o novo arquivo.</li>
+        <li>Substitua <code>content.json</code> no GitHub.</li>
+      </ol>
+      <p>Este editor não usa senha nem envia dados. Tudo acontece apenas no seu navegador.</p>
+    </aside>
+
+    <form id="content-form">
+      <section>
+        <h2><span>01</span> Identidade</h2>
+        <div class="grid two">
+          <label>Nome<input data-path="profile.firstName" type="text"></label>
+          <label>Sobrenome<input data-path="profile.lastName" type="text"></label>
+          <label class="wide">Descrição profissional no topo<input data-path="header.role" type="text"></label>
+          <label>Localização<input data-path="header.location" type="text"></label>
+          <label>Legenda da foto<input data-path="profile.portraitLabel" type="text"></label>
+          <label class="wide">Apresentação<textarea data-path="profile.bio" rows="3"></textarea></label>
+          <label class="wide">Experiência resumida<textarea data-path="profile.since" rows="2"></textarea></label>
+          <label class="wide">Links profissionais <small>Um por linha: nome | endereço</small><textarea data-path="profile.links" data-format="links" rows="4"></textarea></label>
+        </div>
+      </section>
+
+      <section>
+        <h2><span>02</span> Pesquisa e inovação</h2>
+        <div class="grid two">
+          <label>Título<input data-path="sections.research.title" type="text"></label>
+          <label>Código curto<input data-path="sections.research.code" type="text"></label>
+          <label class="wide">Descrição<textarea data-path="sections.research.description" rows="2"></textarea></label>
+          <label class="wide">Áreas <small>Uma por linha</small><textarea data-path="sections.research.tags" data-format="lines" rows="6"></textarea></label>
+        </div>
+      </section>
+
+      <section>
+        <h2><span>03</span> Ensino e tecnologias</h2>
+        <div class="grid two">
+          <label>Título de ensino<input data-path="sections.teaching.title" type="text"></label>
+          <label>Código<input data-path="sections.teaching.code" type="text"></label>
+          <label class="wide">Descrição do ensino<textarea data-path="sections.teaching.description" rows="2"></textarea></label>
+          <label class="wide">Tópicos de ensino <small>Um por linha</small><textarea data-path="sections.teaching.tags" data-format="lines" rows="5"></textarea></label>
+          <label>Título de tecnologias<input data-path="sections.stack.title" type="text"></label>
+          <label>Código<input data-path="sections.stack.code" type="text"></label>
+          <label class="wide">Grupos de tecnologias <small>Um por linha: grupo | tecnologias</small><textarea data-path="sections.stack.groups" data-format="text-pairs" rows="4"></textarea></label>
+        </div>
+      </section>
+
+      <section>
+        <h2><span>04</span> Formação</h2>
+        <div class="grid two">
+          <label>Título<input data-path="sections.education.title" type="text"></label>
+          <label>Código<input data-path="sections.education.code" type="text"></label>
+          <label class="wide">Formações <small>Uma por linha: nível | curso e instituição</small><textarea data-path="sections.education.items" data-format="text-pairs" rows="6"></textarea></label>
+        </div>
+      </section>
+
+      <section>
+        <h2><span>05</span> Vida pessoal</h2>
+        <div class="grid two">
+          <label>Título<input data-path="sections.personal.title" type="text"></label>
+          <label>Código<input data-path="sections.personal.code" type="text"></label>
+          <label class="wide">Descrição<textarea data-path="sections.personal.description" rows="2"></textarea></label>
+          <label class="wide">Atividades <small>Uma por linha</small><textarea data-path="sections.personal.tags" data-format="lines" rows="5"></textarea></label>
+        </div>
+      </section>
+
+      <section>
+        <h2><span>06</span> Contato e rodapé</h2>
+        <div class="grid two">
+          <label>E-mails <small>Um por linha</small><textarea data-path="sections.contact.emails" data-format="lines" rows="3"></textarea></label>
+          <label>Link do NUVEN <small>Nome | endereço</small><textarea data-path="sections.contact.link" data-format="single-link" rows="3"></textarea></label>
+          <label>Rodapé esquerdo<input data-path="footer.left" type="text"></label>
+          <label>Rodapé direito<input data-path="footer.right" type="text"></label>
+          <label class="wide">Descrição para buscadores<textarea data-path="meta.description" rows="2"></textarea></label>
+        </div>
+      </section>
+    </form>
+  </main>
+
+  <div class="actions">
+    <span id="status">Conteúdo carregado</span>
+    <div>
+      <button id="reset" class="secondary" type="button">Descartar alterações</button>
+      <button id="preview" class="secondary" type="button">Pré-visualizar</button>
+      <button id="download" type="button">Baixar content.json</button>
+    </div>
+  </div>
+  <script src="editor.js"></script>
+</body>
+</html>

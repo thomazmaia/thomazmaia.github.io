@@ -1,0 +1,73 @@
+{
+  "meta": {
+    "title": "Thomaz Maia",
+    "description": "Thomaz Maia, professor, pesquisador em inteligência artificial e coordenador de projetos de PD&I."
+  },
+  "header": {
+    "role": "Professor · Pesquisador em IA · Coordenador de projetos de PD&I",
+    "location": "CE_BR"
+  },
+  "profile": {
+    "portraitLabel": "IFCE · NUVEN",
+    "eyebrow": "01_IDENTIDADE",
+    "firstName": "Thomaz",
+    "lastName": "Maia",
+    "bio": "Professor e pesquisador do IFCE Campus Maranguape. Trabalho na interseção entre inteligência artificial, desenvolvimento de software e inovação, transformando pesquisa em soluções tecnológicas aplicadas.",
+    "since": "Pesquisa e desenvolvimento tecnológico desde 2012, com experiência em projetos orientados à indústria e no ecossistema EMBRAPII.",
+    "links": [
+      { "label": "LinkedIn", "url": "https://www.linkedin.com/in/thomaz-maia-37994a311/" },
+      { "label": "Lattes", "url": "http://lattes.cnpq.br/2314364845083326" },
+      { "label": "GitHub", "url": "https://github.com/thomazmaia" },
+      { "label": "Instagram", "url": "https://instagram.com/thomazmaia" }
+    ]
+  },
+  "sections": {
+    "research": {
+      "title": "Pesquisa & inovação",
+      "code": "R&D",
+      "description": "Coordeno o NUVEN e projetos multidisciplinares que aproximam academia, engenharia e aplicações reais.",
+      "tags": ["Inteligência Artificial", "Machine Learning", "Visão Computacional", "Processamento de Imagens", "NLP", "LLMs", "IA Generativa", "RAG", "Engenharia de Software", "IoT"]
+    },
+    "teaching": {
+      "title": "Ensino",
+      "code": "EDU",
+      "description": "Conecto conceitos teóricos a projetos práticos e problemas tecnológicos reais.",
+      "tags": ["Programação", "Python", "POO", "Java", "Web", "Bancos de Dados", "IA"]
+    },
+    "stack": {
+      "title": "Tecnologias",
+      "code": "STACK",
+      "groups": [
+        { "label": "Linguagens", "text": "Python, C, C++, Java, JavaScript, HTML, CSS, MATLAB e SQL." },
+        { "label": "IA & dados", "text": "PyTorch, OpenCV, scikit-learn, Hugging Face, LangChain, Pandas e NumPy." }
+      ]
+    },
+    "education": {
+      "title": "Formação",
+      "code": "PATH",
+      "items": [
+        { "label": "Doutorado", "text": "Eng. de Teleinformática · UFC" },
+        { "label": "Mestrado", "text": "Eng. de Teleinformática · UFC" },
+        { "label": "Engenharia", "text": "Mecatrônica · IFCE" },
+        { "label": "Graduação", "text": "Análise e Desenv. de Sistemas · UNIFOR" },
+        { "label": "Especialização", "text": "Dispositivos Móveis · FA7" }
+      ]
+    },
+    "personal": {
+      "title": "Além da pesquisa",
+      "code": "LIFE",
+      "description": "Pai de Artur e Julia e entusiasta de esportes de endurance.",
+      "tags": ["Ironman 140.6", "Ironman 70.3", "Maratona", "Trail running", "Backyard ultra"]
+    },
+    "contact": {
+      "title": "Contato",
+      "code": "LINK",
+      "emails": ["thomaz.maia@ifce.edu.br", "thomaz@nuven.ifce.edu.br"],
+      "link": { "label": "Conheça o NUVEN", "url": "https://labnuven.morales.dev.br" }
+    }
+  },
+  "footer": {
+    "left": "AI · SOFTWARE · R&D · EDUCATION",
+    "right": "© THOMAZ_MAIA"
+  }
+}
